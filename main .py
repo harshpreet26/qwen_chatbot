@@ -1,5 +1,8 @@
 import ollama
 
+# create client with explicit host
+client = ollama.Client('http://localhost:11434')
+
 def chat_with_qwen():
     #simple chat bot with Qwen
     """This is a multi
@@ -27,7 +30,7 @@ def chat_with_qwen():
           
         try:
             #response from the Qwen model
-            response = ollama.chat(
+            response = client.chat(
                 model="qwen2:0.5b",
                 messages=conversation_history,
             )
